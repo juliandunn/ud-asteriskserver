@@ -1,0 +1,16 @@
+DEPENDENCIES
+  httpd
+    git: git://github.com/opscode-cookbooks/httpd.git
+    revision: 9f604b392d965d9c4abc4b507e634ac1ba773f6a
+  ud-cactiserver
+    path: .
+    metadata: true
+  ud-httpserver
+    path: ../ud-httpserver
+
+GRAPH
+  httpd (0.1.5)
+  ud-cactiserver (0.1.0)
+    ud-httpserver (>= 0.0.0)
+  ud-httpserver (0.1.0)
+    httpd (>= 0.0.0)

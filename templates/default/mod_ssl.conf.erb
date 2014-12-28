@@ -1,0 +1,30 @@
+Listen 443 https
+SSLPassPhraseDialog exec:/usr/libexec/httpd-ssl-pass-dialog
+SSLSessionCache         shmcb:/run/httpd/sslcache(512000)
+SSLSessionCacheTimeout  300
+SSLRandomSeed startup file:/dev/urandom  256
+SSLRandomSeed connect builtin
+SSLCryptoDevice builtin
+
+<VirtualHost _default_:443>
+  ErrorLog logs/ssl_error_log
+  TransferLog logs/ssl_access_log
+  LogLevel warn
+
+  SSLEngine on
+
+  # Ciphers and protocols tuned per Qualys SSL security wizard
+  SSLProtocol all -SSLv2 -SSLv3
+  SSLCipherSuite "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4"
+  SSLHonorCipherOrder on
+
+  # Supposedly SSLCertificateChainFile is deprecated in favor of just
+  # listing the chain as SSLCertificateFile, but I couldn't get it to work
+  SSLCertificateFile /etc/pki/tls/certs/home.urbandecoder.net.crt
+  SSLCertificateChainFile /etc/pki/tls/certs/startssl-sub.class1.server.ca.pem
+  SSLCertificateKeyFile /etc/pki/tls/private/urbandecoder.net.key
+
+  CustomLog logs/ssl_request_log \
+          "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+
+</VirtualHost>

@@ -1,0 +1,98 @@
+I, [2014-12-27T14:21:50.377529 #23404]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:21:50.959670 #23404]  INFO -- Kitchen: -----> Creating <default-fedora-21>...
+E, [2014-12-27T14:21:54.039910 #23404] ERROR -- Kitchen: ------Exception-------
+E, [2014-12-27T14:21:54.039982 #23404] ERROR -- Kitchen: Class: Kitchen::ActionFailed
+E, [2014-12-27T14:21:54.040013 #23404] ERROR -- Kitchen: Message: Failed to complete #create action: [Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider=virtualbox ----
+STDOUT: 
+STDERR: Vagrant failed to initialize at a very early stage:
+
+Vagrant is attempting to interface with the UI in a way that requires
+a TTY. Most actions in Vagrant that require a TTY have configuration
+switches to disable this requirement. Please do that or run Vagrant
+with TTY.
+---- End output of vagrant up --no-provision --provider=virtualbox ----
+Ran vagrant up --no-provision --provider=virtualbox returned 1]
+E, [2014-12-27T14:21:54.040037 #23404] ERROR -- Kitchen: ---Nested Exception---
+E, [2014-12-27T14:21:54.040058 #23404] ERROR -- Kitchen: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2014-12-27T14:21:54.040078 #23404] ERROR -- Kitchen: Message: Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider=virtualbox ----
+STDOUT: 
+STDERR: Vagrant failed to initialize at a very early stage:
+
+Vagrant is attempting to interface with the UI in a way that requires
+a TTY. Most actions in Vagrant that require a TTY have configuration
+switches to disable this requirement. Please do that or run Vagrant
+with TTY.
+---- End output of vagrant up --no-provision --provider=virtualbox ----
+Ran vagrant up --no-provision --provider=virtualbox returned 1
+E, [2014-12-27T14:21:54.040108 #23404] ERROR -- Kitchen: ------Backtrace-------
+E, [2014-12-27T14:21:54.040149 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/shell_out.rb:70:in `rescue in run_command'
+E, [2014-12-27T14:21:54.040172 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2014-12-27T14:21:54.040192 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/driver/base.rb:158:in `run_command'
+E, [2014-12-27T14:21:54.040212 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/kitchen-vagrant-0.15.0/lib/kitchen/driver/vagrant.rb:123:in `run'
+E, [2014-12-27T14:21:54.040232 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/kitchen-vagrant-0.15.0/lib/kitchen/driver/vagrant.rb:68:in `create'
+E, [2014-12-27T14:21:54.040252 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:273:in `public_send'
+E, [2014-12-27T14:21:54.040272 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:273:in `block in perform_action'
+E, [2014-12-27T14:21:54.040292 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:305:in `call'
+E, [2014-12-27T14:21:54.040311 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:305:in `block in synchronize_or_call'
+E, [2014-12-27T14:21:54.040335 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:303:in `synchronize'
+E, [2014-12-27T14:21:54.040355 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:303:in `synchronize_or_call'
+E, [2014-12-27T14:21:54.040409 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:283:in `block in action'
+E, [2014-12-27T14:21:54.040430 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2014-12-27T14:21:54.040449 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:282:in `action'
+E, [2014-12-27T14:21:54.040469 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:273:in `perform_action'
+E, [2014-12-27T14:21:54.040488 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:252:in `create_action'
+E, [2014-12-27T14:21:54.040525 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:246:in `block in transition_to'
+E, [2014-12-27T14:21:54.040549 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:245:in `each'
+E, [2014-12-27T14:21:54.040573 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:245:in `transition_to'
+E, [2014-12-27T14:21:54.040593 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/instance.rb:119:in `converge'
+E, [2014-12-27T14:21:54.040612 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/command.rb:109:in `public_send'
+E, [2014-12-27T14:21:54.040631 #23404] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/command.rb:109:in `block (2 levels) in run_action'
+E, [2014-12-27T14:21:54.040651 #23404] ERROR -- Kitchen: ----------------------
+I, [2014-12-27T14:23:31.171683 #23454]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:23:31.746962 #23454]  INFO -- Kitchen: -----> Creating <default-fedora-21>...
+I, [2014-12-27T14:24:52.201064 #23454]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T14:26:41.268564 #23454]  INFO -- Kitchen: -----> Kitchen is finished. (3m10.10s)
+I, [2014-12-27T14:29:20.521077 #23658]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+E, [2014-12-27T14:29:21.096749 #23658] ERROR -- Kitchen: 
+No instances for regex `--destroy=never', try running `kitchen list'
+
+
+I, [2014-12-27T14:29:26.172177 #23671]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:29:26.774120 #23671]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T14:29:43.028481 #23671]  INFO -- Kitchen: -----> Kitchen is finished. (0m16.86s)
+I, [2014-12-27T14:35:09.203700 #23778]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:35:09.805937 #23778]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T14:35:22.119709 #23778]  INFO -- Kitchen: -----> Kitchen is finished. (0m12.92s)
+I, [2014-12-27T14:37:55.400190 #23855]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:37:56.008233 #23855]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T14:38:08.752711 #23855]  INFO -- Kitchen: -----> Kitchen is finished. (0m13.35s)
+I, [2014-12-27T14:50:57.778062 #24210]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:50:58.884245 #24210]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T14:51:10.386956 #24210]  INFO -- Kitchen: -----> Kitchen is finished. (0m12.61s)
+I, [2014-12-27T14:56:39.273690 #24289]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T14:56:39.958532 #24289]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T14:56:51.383862 #24289]  INFO -- Kitchen: -----> Kitchen is finished. (0m12.11s)
+I, [2014-12-27T23:01:42.575322 #28793]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T23:01:43.203720 #28793]  INFO -- Kitchen: -----> Destroying <default-fedora-21>...
+I, [2014-12-27T23:01:49.839707 #28793]  INFO -- Kitchen: -----> Kitchen is finished. (0m7.26s)
+I, [2014-12-27T23:04:16.736898 #28909]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T23:04:17.351129 #28909]  INFO -- Kitchen: -----> Creating <default-fedora-21>...
+I, [2014-12-27T23:04:51.394045 #28909]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T23:07:30.027402 #28909]  INFO -- Kitchen: -----> Kitchen is finished. (3m13.29s)
+I, [2014-12-27T23:07:50.857396 #29067]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T23:07:51.765970 #29067]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+E, [2014-12-27T23:08:10.029630 #29067] ERROR -- Kitchen: Converge failed on instance <default-fedora-21>.
+I, [2014-12-27T23:09:27.254383 #29119]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T23:09:27.870125 #29119]  INFO -- Kitchen: -----> Destroying <default-fedora-21>...
+I, [2014-12-27T23:09:31.536787 #29119]  INFO -- Kitchen: -----> Kitchen is finished. (0m4.28s)
+I, [2014-12-27T23:09:32.045359 #29159]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-12-27T23:09:32.713331 #29159]  INFO -- Kitchen: -----> Cleaning up any prior instances of <default-fedora-21>
+I, [2014-12-27T23:09:32.713494 #29159]  INFO -- Kitchen: -----> Destroying <default-fedora-21>...
+I, [2014-12-27T23:09:32.715525 #29159]  INFO -- Kitchen: -----> Testing <default-fedora-21>
+I, [2014-12-27T23:09:32.715674 #29159]  INFO -- Kitchen: -----> Creating <default-fedora-21>...
+I, [2014-12-27T23:10:04.861627 #29159]  INFO -- Kitchen: -----> Converging <default-fedora-21>...
+I, [2014-12-27T23:12:28.093879 #29159]  INFO -- Kitchen: -----> Setting up <default-fedora-21>...
+I, [2014-12-27T23:12:28.098351 #29159]  INFO -- Kitchen: -----> Verifying <default-fedora-21>...
+I, [2014-12-27T23:12:28.101031 #29159]  INFO -- Kitchen: -----> Kitchen is finished. (2m56.06s)

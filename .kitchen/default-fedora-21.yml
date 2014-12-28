@@ -1,0 +1,6 @@
+---
+hostname: 127.0.0.1
+username: vagrant
+ssh_key: "/Users/jdunn/Dropbox/devel/chef-urbandecoder/cookbooks/ud-cactiserver/.kitchen/kitchen-vagrant/default-fedora-21/.vagrant/machines/default/virtualbox/private_key"
+port: '2222'
+last_action: verify
