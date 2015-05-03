@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ud-cactiserver
+# Cookbook Name:: ud-asteriskserver
 # Recipe:: default
 #
 # Copyright 2014, Urbandecoder Labs LLC
@@ -17,25 +17,49 @@
 # limitations under the License.
 #
 
-include_recipe 'ud-httpserver'
+include_recipe 'asterisk'
 
-httpd_module 'php5' do
-  package_name 'php' # XXX work around silly bugs
-  action :create
+def data_bag_items(bag_name)
+  data_bag(bag_name).map { |id| data_bag_item bag_name, id }
 end
 
-httpd_config 'php_config' do
-  config_name 'php'
-  source 'mod_php.conf.erb'
+iax = data_bag_items(:asterisk_iax)
+voicemailboxes = data_bag_items(:asterisk_voicemailboxes)
+
+template "#{node['asterisk']['prefix']['conf']}/asterisk/iax.conf" do
+  source 'iax.conf.erb'
+  owner node['asterisk']['user']
+  group node['asterisk']['group']
+  mode '0640'
   action :create
+  variables(
+    :iax => iax
+  )
+  notifies :reload, 'service[asterisk]'
 end
 
-package 'cacti' do
-  action :install
+template "#{node['asterisk']['prefix']['conf']}/asterisk/voicemail.conf" do
+  source 'voicemail.conf.erb'
+  owner node['asterisk']['user']
+  group node['asterisk']['group']
+  mode '0640'
+  action :create
+  variables(
+    :voicemailboxes => voicemailboxes
+  )
+  notifies :reload, 'service[asterisk]'
 end
 
-httpd_config 'cacti_config' do
-  config_name 'cacti'
-  source 'cacti.conf.erb'
-  action :create
+# Symlink a bunch of crap from nonstandard Debian packaging to where it
+# really should go
+%w{macroform-cold_day.gsm macroform-robot_dity.gsm macroform-the_simplicity.gsm manolo_camp-morning_coffee.gsm reno_project-system.gsm}.each do |moh|
+  link "#{node['asterisk']['prefix']['state']}/lib/asterisk/moh/#{moh}" do
+    to "/usr/share/asterisk/moh/#{moh}"
+  end
+end
+
+%w{en en_US en_US_f_Allison recordings}.each do |sound|
+  link "#{node['asterisk']['prefix']['state']}/lib/asterisk/sounds/#{sound}" do
+    to "/usr/share/asterisk/sounds/#{sound}"
+  end
 end

@@ -1,11 +1,11 @@
-ud-postfixclient CHANGELOG
-==========================
+ud-asteriskserver CHANGELOG
+===========================
 
-This file is used to list changes made in each version of the ud-postfixclient cookbook.
+This file is used to list changes made in each version of the ud-asteriskserver cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of ud-postfixclient
+- [your_name] - Initial release
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

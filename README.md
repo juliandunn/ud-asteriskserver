@@ -1,7 +1,7 @@
-Urbandecoder Labs Cacti Server Cookbook
-=======================================
+Urbandecoder Labs Asterisk Server Cookbook
+==========================================
 
-Installs Cacti on Urbandecoder Labs' servers.
+Wrapper cookbook for Urbandecoder Labs' asterisk server
 
 License and Authors
 -------------------

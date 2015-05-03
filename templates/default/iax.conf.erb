@@ -1,0 +1,22 @@
+[general]
+bandwidth=low
+disallow=lpc10			; Icky sound quality...  Mr. Roboto.
+jitterbuffer=no
+forcejitterbuffer=no
+autokill=yes
+<%- @iax.each do |i| %>
+register=<%= i['username'] %>:<%= i['password'] %>@<%= i['server'] %>
+<%- end %>
+
+<%- @iax.each do |i| %>
+[<%= i['name'] %>]
+type=friend
+username=<%= i['username'] %>
+secret=<%= i['password'] %>
+context=<%= i['context'] %>
+host=<%= i['server'] %>
+disallow=<%= i['disallow'] %>
+allow=<%= i['allow'] %>
+insecure=<%= i['insecure'] %>
+requirecalltoken=<%= i['requirecalltoken'] %>
+<%- end %>
