@@ -9,7 +9,7 @@ register=<%= i['username'] %>:<%= i['password'] %>@<%= i['server'] %>
 <%- end %>
 
 <%- @iax.each do |i| %>
-[<%= i['name'] %>]
+[<%= i['id'] %>]
 type=friend
 username=<%= i['username'] %>
 secret=<%= i['password'] %>
