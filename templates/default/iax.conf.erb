@@ -19,4 +19,10 @@ disallow=<%= i['disallow'] %>
 allow=<%= i['allow'] %>
 insecure=<%= i['insecure'] %>
 requirecalltoken=<%= i['requirecalltoken'] %>
+<%- if i['auth'] %>
+auth=<%= i['auth'] %>
+<%- end %>
+<%- if i['encryption'] %>
+encryption=<%= i['encryption'] %>
+<%- end %>
 <%- end %>
